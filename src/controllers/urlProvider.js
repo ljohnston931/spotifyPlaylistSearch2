@@ -1,4 +1,4 @@
-module.exports.getUrl = function getUrl(searchQueryTerms) {
+function getUrl(searchQueryTerms) {
     const endpoint = "https://www.googleapis.com/customsearch/v1";
     const key = process.env.REACT_APP_API_KEY;
     const customEngine = process.env.REACT_APP_CUSTOM_ENGINE;
@@ -26,3 +26,5 @@ function createSearchString(queryTerm) {
 function replaceSpaces(searchString) {
     return searchString.split("%20").join("+");
 }
+
+module.exports = { getUrl: getUrl };

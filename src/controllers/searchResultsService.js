@@ -1,6 +1,6 @@
 const urlProvider = require('./urlProvider.js');
 
-module.exports.getSearchResults = async function getSearchResults(searchQueryTerms) {
+async function getSearchResults(searchQueryTerms) {
     const url = urlProvider.getUrl(searchQueryTerms);
     const res = await getResponse(url);
 
@@ -82,3 +82,5 @@ function parseAuthor(playlistInfo) {
         return matches[0];
     }
 }
+
+module.exports = { getSearchResults: getSearchResults };
