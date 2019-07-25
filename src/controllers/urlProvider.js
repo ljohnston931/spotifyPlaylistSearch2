@@ -27,4 +27,4 @@ function replaceSpaces(searchString) {
     return searchString.split("%20").join("+");
 }
 
-module.exports = { getUrl: getUrl };
+export default { getUrl: getUrl };

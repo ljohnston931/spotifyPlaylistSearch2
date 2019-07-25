@@ -83,4 +83,4 @@ function parseAuthor(playlistInfo) {
     }
 }
 
-module.exports = { getSearchResults: getSearchResults };
+export default { getSearchResults: getSearchResults };
