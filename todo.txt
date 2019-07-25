@@ -1,0 +1,30 @@
+Short-term
+- remove 'on Spotify' from author name
+- consistent styling with title, author, song info in each result
+- reduce page width, add padding
+- left-align search form
+- make forms cooler
+- playlist opens in new tab
+- styling changes on hover
+- 'Find a Spotify user with taste as good as yours.'
+- 'What are you in the mood to listen too?'
+- '28 playlists match your search.'
+- '0 playlists match your search. Try searching for fewer songs.'
+- '0 playlists match your search. Try checking your spelling.' (if spellingError)
+- cooler search button
+
+Medium-term:
+- 'Copy Playlist ID' underneath results
+- Dynamically add search forms 'Add Another Song'
+- Dynamically delete search forms (x icon, on all but first)
+- Advertise here link. Does something look broken, link.
+- error logging when I go over 100
+- responsive design
+
+Long-term
+- change exposed API and custom engine keys
+- set up tracking through Google Sheets
+- hit Spotify API to list songs in each playlist result
+- paging of results
+- register domain name
+- spelling suggestions
