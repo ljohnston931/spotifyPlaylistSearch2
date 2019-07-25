@@ -1,4 +1,4 @@
-const urlProvider = require('./urlProvider.js');
+import urlProvider from './urlProvider.js';
 
 async function getSearchResults(searchQueryTerms) {
     const url = urlProvider.getUrl(searchQueryTerms);

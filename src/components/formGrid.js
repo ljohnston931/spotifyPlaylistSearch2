@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import FormRow from './formRow.js';
-
-const searchResultsService = require('../controllers/searchResultsService.js');
+import searchResultsService from '../controllers/searchResultsService.js';
 
 class FormGrid extends Component {
     constructor(props) {
