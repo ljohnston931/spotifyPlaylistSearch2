@@ -1,33 +1,74 @@
-.App {
-  text-align: center;
+html {
+    height: 100%;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+body {
+    background: #766b76;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    font-size: 19px;
+    color: #fff;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+#app {
+    max-width: 1000px;
+    padding: 50px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.App-link {
-  color: #61dafb;
+.searchSection {
+    text-align: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.result {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.result a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.result .coverArt {
+    box-shadow: 0 0 10px rgba(0,0,0,.3);
+    height: 140px;
+}
+
+.result .coverArt img {
+    object-fit:cover;
+    width: 140px;
+    height: 140px;
+    
+}
+
+.result .flexContainer {
+    display: flex;
+}
+
+.result .playlistInfo {
+    flex-grow: 1;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.result .songCount {
+    min-width: 100px;
+    position: relative;
+}
+
+.result .songCount .songCountInner {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+
+.result .songCount .songCountInner span {
+    display: block;
+    margin: auto;
+    text-align: center;
 }
