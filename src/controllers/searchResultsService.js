@@ -33,6 +33,7 @@ function processResults(res) {
             });
         } else {
             //This result isn't a playlist
+            debugger;
             searchResults.hitCount = adjustHitCount(searchResults.hitCount);
         }
         return processedItems;
@@ -62,7 +63,7 @@ function adjustHitCount(hitCount) {
     if (hitCount >= 1000) {
         return hitCount;
     } 
-    return hitCount--;
+    return hitCount - 1;
 }
 
 function formatNumber(num) {

@@ -1,3 +1,7 @@
+Bugs:
+
+
+
 Short-term
 - remove 'on Spotify' from author name
 - consistent styling with title, author, song info in each result
@@ -12,6 +16,7 @@ Short-term
 - '0 playlists match your search. Try searching for fewer songs.'
 - '0 playlists match your search. Try checking your spelling.' (if spellingError)
 - cooler search button
+- import Raleway
 
 Medium-term:
 - 'Copy Playlist ID' underneath results
@@ -20,6 +25,7 @@ Medium-term:
 - Advertise here link. Does something look broken, link.
 - error logging when I go over 100
 - responsive design
+- include embedded playlists
 
 Long-term
 - change exposed API and custom engine keys
