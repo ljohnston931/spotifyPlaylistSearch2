@@ -5,9 +5,8 @@ import searchResultsService from '../controllers/searchResultsService.js';
 class FormGrid extends Component {
     constructor(props) {
         super(props);
-        this.formId = 0; 
-
-        this.state = { searchQueryTerms: [{ id: this.formId, artist: '', song: '' }] };
+        this.state = { searchQueryTerms: [{ id: 0, artist: '', song: '' }] };
+        this.formId = 1; 
 
         this.search = this.search.bind(this);
         this.onEditForm = this.onEditForm.bind(this);
@@ -40,15 +39,22 @@ class FormGrid extends Component {
     onAddFormRow() {
         let searchQueryTerms = this.state.searchQueryTerms.slice();
         if (searchQueryTerms.length < 10) {
-            this.formId++;
             searchQueryTerms.push({ id: this.formId, artist: '', song: '' });
+            this.formId++;
             this.setState({ searchQueryTerms: searchQueryTerms });
         }
     }
 
     onDeleteFormRow(index) {
         let searchQueryTerms = this.state.searchQueryTerms.slice();
-        searchQueryTerms.splice(index, 1);
+        if (index < 2) {
+            searchQueryTerms[index].artist = '';
+            searchQueryTerms[index].song = '';
+            searchQueryTerms[index].id = this.formId;
+            this.formId++;
+        } else {
+            searchQueryTerms.splice(index, 1);
+        }
         this.setState({ searchQueryTerms: searchQueryTerms });
     }
 
