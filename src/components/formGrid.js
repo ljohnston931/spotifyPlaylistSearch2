@@ -5,10 +5,19 @@ import searchResultsService from '../controllers/searchResultsService.js';
 class FormGrid extends Component {
     constructor(props) {
         super(props);
+        this.formId = 0; 
+
+        this.state = { searchQueryTerms: [{ id: this.formId, artist: '', song: '' }] };
+
         this.search = this.search.bind(this);
-        this.state = { searchQueryTerms: [{ artist: '', song: '' }, { artist: '', song: '' }] };
         this.onEditForm = this.onEditForm.bind(this);
         this.checkForEnter = this.checkForEnter.bind(this);
+        this.onAddFormRow = this.onAddFormRow.bind(this);
+        this.onDeleteFormRow = this.onDeleteFormRow.bind(this);
+    }
+
+    componentDidMount() {
+        this.onAddFormRow();
     }
 
     async search() {
@@ -17,7 +26,7 @@ class FormGrid extends Component {
     }
 
     onEditForm(index, updatedFormRow) {
-        let searchQueryTerms = this.state.searchQueryTerms;
+        let searchQueryTerms = this.state.searchQueryTerms.slice();
         searchQueryTerms[index] = updatedFormRow;
         this.setState({ searchQueryTerms: searchQueryTerms });
     }
@@ -28,13 +37,33 @@ class FormGrid extends Component {
         }
     }
 
-    render() {
+    onAddFormRow() {
+        let searchQueryTerms = this.state.searchQueryTerms.slice();
+        if (searchQueryTerms.length < 10) {
+            this.formId++;
+            searchQueryTerms.push({ id: this.formId, artist: '', song: '' });
+            this.setState({ searchQueryTerms: searchQueryTerms });
+        }
+    }
 
-        const forms = this.state.searchQueryTerms.map((formRow, index)=>
-            <FormRow artist={formRow.artist} song={formRow.song} index={index} onEditForm={this.onEditForm} key={index}/>);
+    onDeleteFormRow(index) {
+        let searchQueryTerms = this.state.searchQueryTerms.slice();
+        searchQueryTerms.splice(index, 1);
+        this.setState({ searchQueryTerms: searchQueryTerms });
+    }
+
+    render() {
+        const forms = this.state.searchQueryTerms.map((formRow, index) =>
+            <FormRow artist={formRow.artist}
+                song={formRow.song} index={index}
+                onEditForm={this.onEditForm}
+                onDelete={this.onDeleteFormRow}
+                id={formRow.id}
+                key={formRow.id} />);
         return (
             <div onKeyUp={this.checkForEnter}>
                 <div>{forms}</div>
+                <button onClick={this.onAddFormRow}>Add Another Song</button>
                 <button onClick={this.search}>Search</button>
             </div>
         );
