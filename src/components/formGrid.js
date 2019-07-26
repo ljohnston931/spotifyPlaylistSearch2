@@ -31,7 +31,7 @@ class FormGrid extends Component {
     render() {
 
         const forms = this.state.searchQueryTerms.map((formRow, index)=>
-            <FormRow artist={formRow.artist} song={formRow.song} index={index} onEditForm={this.onEditForm}/>);
+            <FormRow artist={formRow.artist} song={formRow.song} index={index} onEditForm={this.onEditForm} key={index}/>);
         return (
             <div onKeyUp={this.checkForEnter}>
                 <div>{forms}</div>

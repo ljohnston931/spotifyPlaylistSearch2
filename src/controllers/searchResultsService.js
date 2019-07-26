@@ -33,7 +33,6 @@ function processResults(res) {
             });
         } else {
             //This result isn't a playlist
-            debugger;
             searchResults.hitCount = adjustHitCount(searchResults.hitCount);
         }
         return processedItems;
@@ -78,7 +77,7 @@ function parseTitle(playlistInfo) {
 }
 
 function parseAuthor(playlistInfo) {
-    const matches = playlistInfo.match(/(?<=a playlist by )(.*)(?= on Spotify|$)/g)
+    const matches = playlistInfo.match(/((?<=a playlist by ).*(?= on Spotify))|(?<=a playlist by ).*/g)
     if (matches && matches.length > 0) {
         return matches[0];
     }

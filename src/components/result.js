@@ -1,21 +1,17 @@
 import React, { Component } from 'react';
 
 class Result extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         return (
             <div className="result">
-                <a href={this.props.metadata.link}>
-                    <div className="flexContainer">
+                <div className="flexContainer" onClick={() => window.open(this.props.metadata.link, "_blank")}>
                         <div className="coverArt">
-                            <img src={this.props.metadata.imageSource}></img>
+                            <img src={this.props.metadata.imageSource} alt="playlist cover art"></img>
                         </div>
                         <div className="playlistInfo">
                             <p>{this.props.metadata.title}</p>
-                            <a href={this.props.metadata.authorLink}>{this.props.metadata.authorName}</a>
+                            <a href={this.props.metadata.authorLink} target="_blank">{this.props.metadata.authorName}</a>
                         </div>
                         <div className="songCount">
                             <div className="songCountInner">
@@ -24,8 +20,6 @@ class Result extends Component {
                             </div>
                         </div>
                     </div>
-                </a>
-
             </div>
         );
     }
