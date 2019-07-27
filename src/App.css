@@ -23,6 +23,37 @@ body {
     text-align: center;
 }
 
+input {
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 1px solid #d0cdd0;
+    margin: 10px;
+    color: #d0cdd0;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    font-size: 19px;
+}
+
+input:focus {
+    color: #fff;
+    border-bottom: 1px solid #fff;
+}
+
+input::placeholder {
+    opacity: 1;
+    color: #d0cdd0;
+}
+
+input:focus::placeholder {
+    opacity: 1;
+    color: #fff;
+}
+
+.inline {
+    display: inline-block;
+}
+
 .result {
     margin-top: 15px;
     margin-bottom: 15px;

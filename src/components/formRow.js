@@ -34,17 +34,15 @@ class FormRow extends Component {
     render() {
         return (
             <div>
-                <form>
+                <form className="inline">
                     <label>
-                        Artist:
-                        <input type="text" value={this.state.artist} onChange={this.handleArtistChange} />
+                        <input type="text" placeholder="Artist" value={this.state.artist} onChange={this.handleArtistChange} />
                     </label>
                     <label>
-                        Song:
-                        <input type="text" value={this.state.song} onChange={this.handleSongChange} />
+                        <input type="text" placeholder="Song (Optional)" value={this.state.song} onChange={this.handleSongChange} />
                     </label>
                 </form>
-            <button onClick={this.onDelete}>X</button>
+            <button className="inline" onClick={this.onDelete}>X</button>
         </div>
         );
     }
