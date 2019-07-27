@@ -16,10 +16,11 @@ class HomePage extends Component {
     render() {
         return (
             <div>
-                <div className="searchSection">
-                    <h1>Find your Spotify Soulmate:</h1>
-                    <FormGrid setResults={this.setResults} />
+                <div className="heading">
+                    <p className="title">DISCOVER YOUR SPOTIFY SOULMATE</p>
+                    <p className="subtitle">FIND A SPOTIFY USER WHOSE TASTE IS AS GOOD AS YOURS.</p>
                 </div>
+                    <FormGrid setResults={this.setResults} />
                 <Results results={this.state.results} />
           </div>
         )

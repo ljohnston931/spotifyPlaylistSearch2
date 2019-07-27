@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway:200,300,400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Raleway:200,300,400,500,600,700&display=swap');
 
 html {
     height: 100%;
@@ -10,6 +10,8 @@ body {
     font-weight: 300;
     font-size: 19px;
     color: #fff;
+    margin: 50px;
+    letter-spacing: 1px;
 }
 
 #app {
@@ -19,8 +21,23 @@ body {
     margin-right: auto;
 }
 
-.searchSection {
-    text-align: center;
+.heading {
+
+}
+.heading .title {
+    font-size: 54px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.heading .subtitle {
+    letter-spacing: 2px;
+    font-weight: 400;
+    margin-bottom: 85px;
+}
+
+.formRow {
+
 }
 
 input {
@@ -28,11 +45,12 @@ input {
     outline: 0;
     background: transparent;
     border-bottom: 1px solid #d0cdd0;
-    margin: 10px;
+    margin: 20px 30px 20px 0px;
     color: #d0cdd0;
     font-family: 'Raleway', sans-serif;
     font-weight: 300;
     font-size: 19px;
+    letter-spacing: 1px;
 }
 
 input:focus {
@@ -52,6 +70,45 @@ input:focus::placeholder {
 
 .inline {
     display: inline-block;
+}
+
+button.close {
+    background: transparent;
+    border: transparent;
+    color: #d0cdd0;
+    font-size: 19px;
+    font-family: 'Raleway', sans-serif;
+    margin: 2px;
+}
+
+button.close:hover {
+    color: #fff;
+    cursor: pointer;
+}
+
+.buttons {
+    margin-top: 10px;
+    margin-left: 223px;
+}
+
+button.pill {
+    font-size: 17px;
+    font-weight: 500;
+    font-family: 'Raleway', sans-serif;
+    background-color: #d0cdd0;
+    border: none;
+    color: #766b76;
+    padding: 7px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 7px;
+}
+
+button.pill:hover {
+    background-color: #fff;
 }
 
 .result {

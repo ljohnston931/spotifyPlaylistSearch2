@@ -33,7 +33,7 @@ class FormRow extends Component {
 
     render() {
         return (
-            <div>
+            <div className="formRow">
                 <form className="inline">
                     <label>
                         <input type="text" placeholder="Artist" value={this.state.artist} onChange={this.handleArtistChange} />
@@ -42,7 +42,7 @@ class FormRow extends Component {
                         <input type="text" placeholder="Song (Optional)" value={this.state.song} onChange={this.handleSongChange} />
                     </label>
                 </form>
-            <button className="inline" onClick={this.onDelete}>X</button>
+            <button className="inline close" onClick={this.onDelete}>X</button>
         </div>
         );
     }

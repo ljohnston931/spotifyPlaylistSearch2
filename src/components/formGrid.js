@@ -68,9 +68,12 @@ class FormGrid extends Component {
                 key={formRow.id} />);
         return (
             <div onKeyUp={this.checkForEnter}>
+                <p>What are you in the mood to listen to?</p>
                 <div>{forms}</div>
-                <button onClick={this.onAddFormRow}>Add Another Song</button>
-                <button onClick={this.search}>Search</button>
+                <div className="buttons">
+                    <button class="pill" onClick={this.onAddFormRow}>Add Another Song</button>
+                    <button class="pill" onClick={this.search}>Search</button>
+                </div>
             </div>
         );
     }
