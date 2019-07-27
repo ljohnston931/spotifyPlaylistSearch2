@@ -71,8 +71,8 @@ class FormGrid extends Component {
                 <p>What are you in the mood to listen to?</p>
                 <div>{forms}</div>
                 <div className="buttons">
-                    <button class="pill" onClick={this.onAddFormRow}>Add Another Song</button>
-                    <button class="pill" onClick={this.search}>Search</button>
+                    <button className="pill" onClick={this.onAddFormRow}>Add Another Song</button>
+                    <button className="pill" onClick={this.search}>Search</button>
                 </div>
             </div>
         );

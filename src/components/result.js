@@ -10,14 +10,12 @@ class Result extends Component {
                             <img src={this.props.metadata.imageSource} alt="playlist cover art"></img>
                         </div>
                         <div className="playlistInfo">
-                            <p>{this.props.metadata.title}</p>
+                            <p className="playlistTitle">{this.props.metadata.title}</p>
                             <a href={this.props.metadata.authorLink} target="_blank">{this.props.metadata.authorName}</a>
                         </div>
                         <div className="songCount">
-                            <div className="songCountInner">
-                                <span className="count">{this.props.metadata.songCount}</span>
-                                <span>songs</span>
-                            </div>
+                                <p className="count">{this.props.metadata.songCount}</p>
+                                <p>songs</p>
                         </div>
                     </div>
             </div>

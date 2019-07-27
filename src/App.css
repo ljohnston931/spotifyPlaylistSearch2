@@ -1,164 +1,166 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:200,300,400,500,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
 
-html {
-    height: 100%;
-}
+    html {
+        height: 100%;
+    }
 
-body {
-    background: #766b76;
-    font-family: 'Raleway', sans-serif;
-    font-weight: 300;
-    font-size: 19px;
-    color: #fff;
-    margin: 50px;
-    letter-spacing: 1px;
-}
+    body {
+        background: #766b76;
+        font-family: 'Raleway', sans-serif;
+        font-weight: 300;
+        font-size: 19px;
+        color: #d0cdd0;
+        margin: 50px;
+        letter-spacing: 1px;
+    }
 
-#app {
-    max-width: 1000px;
-    padding: 50px;
-    margin-left: auto;
-    margin-right: auto;
-}
+    #app {
+        max-width: 1000px;
+        padding: 50px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
-.heading {
+    p {
+        color: #fff;
+    }
 
-}
-.heading .title {
-    font-size: 54px;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
+    .heading .title {
+        font-size: 54px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
 
-.heading .subtitle {
-    letter-spacing: 2px;
-    font-weight: 400;
-    margin-bottom: 85px;
-}
+    .heading .subtitle {
+        letter-spacing: 2px;
+        font-weight: 400;
+        margin-bottom: 85px;
+    }
 
-.formRow {
+    input {
+        border: 0;
+        outline: 0;
+        background: transparent;
+        border-bottom: 1px solid #d0cdd0;
+        margin: 20px 30px 20px 0px;
+        color: #d0cdd0;
+        font-family: 'Raleway', sans-serif;
+        font-weight: 300;
+        font-size: 19px;
+        letter-spacing: 1px;
+    }
 
-}
+    input:focus {
+        color: #fff;
+        border-bottom: 1px solid #fff;
+    }
 
-input {
-    border: 0;
-    outline: 0;
-    background: transparent;
-    border-bottom: 1px solid #d0cdd0;
-    margin: 20px 30px 20px 0px;
-    color: #d0cdd0;
-    font-family: 'Raleway', sans-serif;
-    font-weight: 300;
-    font-size: 19px;
-    letter-spacing: 1px;
-}
+    input::placeholder {
+        opacity: 1;
+        color: #d0cdd0;
+    }
 
-input:focus {
-    color: #fff;
-    border-bottom: 1px solid #fff;
-}
+    input:focus::placeholder {
+        opacity: 1;
+        color: #fff;
+    }
 
-input::placeholder {
-    opacity: 1;
-    color: #d0cdd0;
-}
+    .inline {
+        display: inline-block;
+    }
 
-input:focus::placeholder {
-    opacity: 1;
-    color: #fff;
-}
+    button.close {
+        background: transparent;
+        border: transparent;
+        color: #d0cdd0;
+        font-size: 19px;
+        font-family: 'Raleway', sans-serif;
+        margin: 2px;
+    }
 
-.inline {
-    display: inline-block;
-}
+    button.close:hover {
+        color: #fff;
+        cursor: pointer;
+    }
 
-button.close {
-    background: transparent;
-    border: transparent;
-    color: #d0cdd0;
-    font-size: 19px;
-    font-family: 'Raleway', sans-serif;
-    margin: 2px;
-}
+    .buttons {
+        margin-top: 10px;
+        margin-left: 223px;
+    }
 
-button.close:hover {
-    color: #fff;
-    cursor: pointer;
-}
+    button.pill {
+        font-size: 17px;
+        font-weight: 500;
+        font-family: 'Raleway', sans-serif;
+        background-color: #d0cdd0;
+        border: none;
+        color: #766b76;
+        padding: 7px 12px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin: 10px;
+        cursor: pointer;
+        border-radius: 7px;
+    }
 
-.buttons {
-    margin-top: 10px;
-    margin-left: 223px;
-}
+    button.pill:hover {
+        background-color: #fff;
+    }
 
-button.pill {
-    font-size: 17px;
-    font-weight: 500;
-    font-family: 'Raleway', sans-serif;
-    background-color: #d0cdd0;
-    border: none;
-    color: #766b76;
-    padding: 7px 12px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    margin: 10px;
-    cursor: pointer;
-    border-radius: 7px;
-}
+    .result .playlistTitle {
+        color: #fff;
+    }
 
-button.pill:hover {
-    background-color: #fff;
-}
+    .result p {
+        margin: 10px 0px;
+    }
 
-.result {
-    margin-top: 15px;
-    margin-bottom: 15px;
-}
+    .result a {
+        text-decoration: none;
+        color: #d0cdd0;
+    }
 
-.result a {
-    text-decoration: none;
-    color: #fff;
-}
+    .result a:hover {
+        color: #fff;
+        cursor: pointer;
+    }
 
-.result .coverArt {
-    box-shadow: 0 0 10px rgba(0,0,0,.3);
-    height: 140px;
-}
+    .result .coverArt {
+        box-shadow: 0 0 10px rgba(0,0,0,.3);
+        height: 140px;
+    }
 
-.result .coverArt img {
-    object-fit:cover;
-    width: 140px;
-    height: 140px;
+    .result .coverArt img {
+        object-fit:cover;
+        width: 140px;
+        height: 140px;
     
-}
+    }
 
-.result .flexContainer {
-    display: flex;
-}
+    .result .flexContainer {
+        display: flex;
+        padding: 20px;
+    }
 
-.result .playlistInfo {
-    flex-grow: 1;
-    padding-left: 20px;
-    padding-right: 20px;
-}
+    .result .flexContainer:hover {
+        background-color: #585058;
+        cursor: pointer;
+    }
 
-.result .songCount {
-    min-width: 100px;
-    position: relative;
-}
+    .result .playlistInfo {
+        flex-grow: 1;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 
-.result .songCount .songCountInner {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-}
+    .result .songCount .count {
+        font-family: 'Quicksand', sans-serif;
+    }
 
 
-.result .songCount .songCountInner span {
-    display: block;
-    margin: auto;
-    text-align: center;
-}
+    .result .songCount p {
+        text-align: center;
+        color: #d0cdd0
+    }
