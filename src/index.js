@@ -3,9 +3,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-//debugger;
-//const dotenv = require('dotenv');
-//dotenv.configure();
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

@@ -84,11 +84,6 @@
         cursor: pointer;
     }
 
-    .buttons {
-        margin-top: 10px;
-        margin-left: 223px;
-    }
-
     button.pill {
         font-size: 17px;
         font-weight: 500;
@@ -100,7 +95,7 @@
         text-align: center;
         text-decoration: none;
         display: inline-block;
-        margin: 10px;
+        margin: 20px 35px 35px 0px;
         cursor: pointer;
         border-radius: 7px;
     }
