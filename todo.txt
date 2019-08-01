@@ -1,25 +1,16 @@
 Bugs:
-
+-Dan + Shay
+- What to do when 8 results but only 6 show on next page?
 
 
 Short-term
-- consistent styling with title, author, song info in each result
-- reduce page width, add padding
-- left-align search form
-- make forms cooler
-- styling changes on hover
-- 'Find a Spotify user with taste as good as yours.'
-- 'What are you in the mood to listen too?'
 - '28 playlists match your search.'
-- '0 playlists match your search. Try searching for fewer songs.'
 - '0 playlists match your search. Try checking your spelling.' (if spellingError)
-- cooler search button
-- import Raleway
+- modals for Hints and ? next to Copy Spotify URI
+- skip x when tabbing
+- tab to add new field
 
 Medium-term:
-- 'Copy Playlist ID' underneath results
-- Dynamically add search forms 'Add Another Song'
-- Dynamically delete search forms (x icon, on all but first)
 - Advertise here link. Does something look broken, link.
 - error logging when I go over 100
 - responsive design
@@ -32,3 +23,9 @@ Long-term
 - paging of results
 - register domain name
 - spelling suggestions
+
+Hints:
+- tab to switch fields and add new field
+- enter to search
+- try searching for your favorite artists first and then narrow down further by entering song title if necessary
+- 

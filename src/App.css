@@ -104,12 +104,21 @@
         background-color: #fff;
     }
 
-    .result .playlistTitle {
+    .result p {
+        margin: 14px 0px;
+    }
+
+    .result p.changeOnHover {
+        color: #d0cdd0;
+    }
+
+    .result p.changeOnHover:hover {
         color: #fff;
     }
 
-    .result p {
-        margin: 10px 0px;
+    .result p.footnote {
+        margin-top: 28px;
+        font-size: 14px;
     }
 
     .result a {

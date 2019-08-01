@@ -17,27 +17,36 @@ function processResults(res) {
         return searchResults;
     }
     searchResults.hitCount = res.searchInformation.totalResults;
-    searchResults.items = res.items.reduce((processedItems, item) => {
-        const metatags = item.pagemap.metatags[0];
-        const spotifyURI = getSpotifyURI(metatags["og:url"]);
-        if (spotifyURI) {
-            const playlistInfo = metatags["og:title"]
-            processedItems.push({
-                title: parseTitle(playlistInfo),
-                link: metatags["og:url"],
-                imageSource: metatags["og:image"],
-                authorName: parseAuthor(playlistInfo),
-                authorLink: metatags["music:creator"],
-                songCount: metatags["music:song_count"],
-                spotifyURI: spotifyURI
-            });
-        } else {
-            //This result isn't a playlist
-            searchResults.hitCount = adjustHitCount(searchResults.hitCount);
-        }
-        return processedItems;
-    }, []);
-    searchResults.hitCount = formatNumber(searchResults.hitCount);
+    if (res.items) {
+        searchResults.items = res.items.reduce((processedItems, item) => {
+            const metatags = item.pagemap.metatags[0];
+            const spotifyUri = getSpotifyURI(metatags["og:url"]);
+            if (spotifyUri) {
+                const playlistInfo = metatags["og:title"]
+                processedItems.push({
+                    title: parseTitle(playlistInfo),
+                    link: metatags["og:url"],
+                    imageSource: metatags["og:image"],
+                    authorName: parseAuthor(playlistInfo),
+                    authorLink: metatags["music:creator"],
+                    songCount: metatags["music:song_count"],
+                    spotifyUri: spotifyUri
+                });
+            } else {
+                //This result isn't a playlist
+                searchResults.hitCount = adjustHitCount(searchResults.hitCount);
+            }
+            return processedItems;
+        }, []);
+    }
+    if (searchResults.hitCount > 1) {
+        searchResults.message = formatNumber(searchResults.hitCount) + " results";
+    } else if (searchResults.hitCount === 1) {
+        searchResults.message = formatNumber(searchResults.hitCount) + " result";
+    } else {
+        searchResults.message = "No public playlists match your search. Try using less specific criteria and double-check your spelling."
+    }
+    
     return searchResults;
 }
 

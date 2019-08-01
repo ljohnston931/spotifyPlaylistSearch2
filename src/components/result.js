@@ -1,6 +1,19 @@
 import React, { Component } from 'react';
 
 class Result extends Component {
+    constructor(props) {
+        super(props);
+        this.copyUri = this.copyUri.bind(this);
+    }
+            
+    copyUri(event) {
+        event.stopPropagation();
+        let textArea = document.createElement('textarea');
+        textArea.value = this.props.metadata.spotifyUri;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand("copy");
+}
 
     render() {
         return (
@@ -10,8 +23,9 @@ class Result extends Component {
                             <img src={this.props.metadata.imageSource} alt="playlist cover art"></img>
                         </div>
                         <div className="playlistInfo">
-                            <p className="playlistTitle">{this.props.metadata.title}</p>
-                            <a href={this.props.metadata.authorLink} target="_blank">{this.props.metadata.authorName}</a>
+                            <p>{this.props.metadata.title}</p>
+                            <a href={this.props.metadata.authorLink} target="_blank"><p className="changeOnHover">{this.props.metadata.authorName}</p></a>
+                            <div onClick={this.copyUri}><p className="changeOnHover footnote">Copy Spotify URI</p></div>
                         </div>
                         <div className="songCount">
                                 <p className="count">{this.props.metadata.songCount}</p>
