@@ -41,7 +41,7 @@ function processResults(res) {
     }
     if (searchResults.hitCount > 1) {
         searchResults.message = formatNumber(searchResults.hitCount) + " results";
-    } else if (searchResults.hitCount === 1) {
+    } else if (searchResults.hitCount == 1) {
         searchResults.message = formatNumber(searchResults.hitCount) + " result";
     } else {
         searchResults.message = "No public playlists match your search. Try using less specific criteria and double-check your spelling."
