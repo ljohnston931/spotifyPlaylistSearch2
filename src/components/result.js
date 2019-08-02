@@ -9,6 +9,7 @@ class Result extends Component {
     copyUri(event) {
         event.stopPropagation();
         let textArea = document.createElement('textarea');
+        textArea.style.display = 'none';
         textArea.value = this.props.metadata.spotifyUri;
         document.body.appendChild(textArea);
         textArea.select();

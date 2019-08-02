@@ -1,6 +1,7 @@
 Bugs:
 -Dan + Shay
 - What to do when 8 results but only 6 show on next page?
+- of Montreal: 3rd result has no image
 
 
 Short-term

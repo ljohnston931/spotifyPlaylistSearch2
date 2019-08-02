@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Results from './results.js';
 import FormGrid from './formGrid.js';
+import Modal from './modal.js';
+import './modal.css';
 
 class HomePage extends Component {
     constructor(props) {
@@ -13,6 +15,14 @@ class HomePage extends Component {
         this.setState({ results: results });
     }
 
+    closeModal = () => {
+        this.setState({ isModalOpen: false });
+    };
+
+    openModal = (modalHeader, modalContent) => {
+        this.setState({ isModalOpen: true, modalHeader: modalHeader, modalContent: modalContent });
+    };
+
     render() {
         return (
             <div>
@@ -20,8 +30,17 @@ class HomePage extends Component {
                     <p className="title">DISCOVER YOUR SPOTIFY SOULMATE</p>
                     <p className="subtitle">FIND A SPOTIFY USER WHOSE TASTE IS AS GOOD AS YOURS.</p>
                 </div>
-                    <FormGrid setResults={this.setResults} />
+                <FormGrid setResults={this.setResults} openModal={this.openModal} />
                 <Results results={this.state.results} />
+                <Modal
+                    modalClosed={this.closeModal}
+                    show={this.state.isModalOpen}
+                    modalTitle={this.state.modalHeader}
+                    useModalHeader={true}
+                    useModalFooter={false}
+                >
+                    {this.state.modalContent}
+            </Modal>
           </div>
         )
   }

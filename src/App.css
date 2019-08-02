@@ -38,6 +38,11 @@
         margin-bottom: 85px;
     }
 
+    .tipsButton {
+        display: inline;
+        margin-left: 20px;
+    }
+
     input {
         border: 0;
         outline: 0;
@@ -108,12 +113,13 @@
         margin: 14px 0px;
     }
 
-    .result p.changeOnHover {
+    .changeOnHover {
         color: #d0cdd0;
     }
 
-    .result p.changeOnHover:hover {
+    .changeOnHover:hover {
         color: #fff;
+        cursor: pointer;
     }
 
     .result p.footnote {

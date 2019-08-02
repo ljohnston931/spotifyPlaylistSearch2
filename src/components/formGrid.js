@@ -5,7 +5,8 @@ import searchResultsService from '../controllers/searchResultsService.js';
 class FormGrid extends Component {
     constructor(props) {
         super(props);
-        this.state = { searchQueryTerms: [{ id: 0, artist: '', song: '' }] };
+        this.state = {
+            searchQueryTerms: [{ id: 0, artist: '', song: '' }]};
         this.formId = 1; 
 
         this.search = this.search.bind(this);
@@ -13,6 +14,7 @@ class FormGrid extends Component {
         this.checkForEnter = this.checkForEnter.bind(this);
         this.onAddFormRow = this.onAddFormRow.bind(this);
         this.onDeleteFormRow = this.onDeleteFormRow.bind(this);
+        this.openTipsModal = this.openTipsModal.bind(this);
     }
 
     componentDidMount() {
@@ -58,6 +60,12 @@ class FormGrid extends Component {
         this.setState({ searchQueryTerms: searchQueryTerms });
     }
 
+    openTipsModal() {
+        this.props.openModal('TIPS', 'Try searching for 2-3 of your favorite artists without song titles. ' +
+            'Then add song titles one by one to narrow your search. ' +
+            'Press tab to move to next field. Press enter to search. ');
+    }
+
     render() {
         const forms = this.state.searchQueryTerms.map((formRow, index) =>
             <FormRow artist={formRow.artist}
@@ -68,7 +76,7 @@ class FormGrid extends Component {
                 key={formRow.id} />);
         return (
             <div onKeyUp={this.checkForEnter}>
-                <p>What are you in the mood to listen to?</p>
+                    <p>What are you in the mood to listen to?<span className='tipsButton changeOnHover' onClick={this.openTipsModal} >Tips</span></p>
                 <div>{forms}</div>
                 <button className="pill" onClick={this.onAddFormRow}>Add Another Song</button>
                 <button className="pill" onClick={this.search}>Search</button>
