@@ -4,6 +4,7 @@ class Result extends Component {
     constructor(props) {
         super(props);
         this.copyUri = this.copyUri.bind(this);
+        this.openCopyUriModal = this.openCopyUriModal.bind(this);
     }
             
     copyUri(event) {
@@ -15,7 +16,11 @@ class Result extends Component {
         document.body.appendChild(textArea);
         textArea.select();
         document.execCommand("copy");
-}
+    }
+
+    openCopyUriModal() {
+        this.props.openModal('SPOTIFY URI', 'Instead of opening a playlist in the Spotify Web Player, you can open it directly in the Spotify app. Paste the Spotify URI into the search bar of the Spotify app and press enter.');
+    }
 
     render() {
         return (
@@ -27,7 +32,10 @@ class Result extends Component {
                         <div className="playlistInfo">
                             <p>{this.props.metadata.title}</p>
                             <a href={this.props.metadata.authorLink} target="_blank"><p className="changeOnHover">{this.props.metadata.authorName}</p></a>
-                            <div onClick={this.copyUri}><p className="changeOnHover footnote">Copy Spotify URI</p></div>
+                            <div onClick={this.copyUri}>
+                                <p className="changeOnHover footnote">Copy Spotify URI</p>
+                                <i class="changeOnHover fa fa-question-circle" aria-hidden="true" onClick={this.openCopyUriModal}></i>
+                            </div>
                         </div>
                         <div className="songCount">
                                 <p className="count">{this.props.metadata.songCount}</p>

@@ -10,7 +10,7 @@ class Results extends Component {
             let results;
             if (this.props.results.items) {
                 results = this.props.results.items.map((result, index) =>
-                    <Result metadata={result} key={index} />);
+                    <Result metadata={result} key={index} openModal={this.props.openModal}/>);
             }
 
         return (

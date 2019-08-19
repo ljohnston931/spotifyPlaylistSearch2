@@ -31,7 +31,7 @@ class HomePage extends Component {
                     <p className="subtitle">FIND A SPOTIFY USER WHOSE TASTE IS AS GOOD AS YOURS.</p>
                 </div>
                 <FormGrid setResults={this.setResults} openModal={this.openModal} />
-                <Results results={this.state.results} />
+                <Results results={this.state.results} openModal={this.openModal} />
                 <Modal
                     modalClosed={this.closeModal}
                     show={this.state.isModalOpen}
