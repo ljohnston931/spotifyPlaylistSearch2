@@ -3,12 +3,16 @@ import Results from './results.js';
 import FormGrid from './formGrid.js';
 import Modal from './modal.js';
 import './modal.css';
+import ReactGA from 'react-ga';
 
 class HomePage extends Component {
     constructor(props) {
         super(props);
         this.state = {};
         this.setResults = this.setResults.bind(this);
+
+        ReactGA.initialize('UA-146064976-1');
+        ReactGA.pageview('homepage');
     }
 
     setResults(results) {
@@ -21,6 +25,7 @@ class HomePage extends Component {
 
     openModal = (modalHeader, modalContent) => {
         this.setState({ isModalOpen: true, modalHeader: modalHeader, modalContent: modalContent });
+        ReactGA.modalview(modalHeader);
     };
 
     render() {

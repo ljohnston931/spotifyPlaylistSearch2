@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import FormRow from './formRow.js';
 import searchResultsService from '../controllers/searchResultsService.js';
+import ReactGA from 'react-ga';
+
 
 class FormGrid extends Component {
     constructor(props) {
         super(props);
         this.state = {
             searchQueryTerms: [{ id: 0, artist: '', song: '' }]};
-        this.formId = 1; 
+        this.formId = 1;
 
         this.search = this.search.bind(this);
         this.onEditForm = this.onEditForm.bind(this);
@@ -15,6 +17,7 @@ class FormGrid extends Component {
         this.onAddFormRow = this.onAddFormRow.bind(this);
         this.onDeleteFormRow = this.onDeleteFormRow.bind(this);
         this.openTipsModal = this.openTipsModal.bind(this);
+        this.logSearch = this.logSearch.bind(this);
     }
 
     componentDidMount() {
@@ -24,6 +27,16 @@ class FormGrid extends Component {
     async search() {
         const results = await searchResultsService.getSearchResults(this.state.searchQueryTerms);
         this.props.setResults(results);
+        this.logSearch(this.state.searchQueryTerms);
+    }
+
+    logSearch(searchQueryTerms) {
+        const searchString = searchQueryTerms.toString();
+        ReactGA.event({
+            category: 'Search',
+            action: 'Click',
+            label: searchString
+        });
     }
 
     onEditForm(index, updatedFormRow) {

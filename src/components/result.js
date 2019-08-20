@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactGA from 'react-ga';
 
 class Result extends Component {
     constructor(props) {
@@ -16,6 +17,11 @@ class Result extends Component {
         document.body.appendChild(textArea);
         textArea.select();
         document.execCommand("copy");
+        ReactGA.event({
+            category: 'Copy URI',
+            action: 'Click',
+            label: this.props.metadata.spotifyUri
+        });
     }
 
     openCopyUriModal() {

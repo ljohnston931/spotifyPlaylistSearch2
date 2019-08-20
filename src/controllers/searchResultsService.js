@@ -1,4 +1,5 @@
 import urlProvider from './urlProvider.js';
+import ReactGA from 'react-ga';
 
 async function getSearchResults(searchQueryTerms) {
     const url = urlProvider.getUrl(searchQueryTerms);
@@ -13,6 +14,8 @@ function processResults(res) {
     }
     let searchResults = {};
     if (res.error) {
+        ReactGA.initialize('UA-146064976-1');
+        ReactGA.exception(res.error);
         searchResults.error = res.error;
         return searchResults;
     }

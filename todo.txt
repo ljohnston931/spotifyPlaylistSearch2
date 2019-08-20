@@ -14,7 +14,6 @@ Short-term
 Medium-term:
 - Advertise here link. Does something look broken, link.
 - error logging when I go over 100
-- responsive design
 - include embedded playlists
 
 Long-term
