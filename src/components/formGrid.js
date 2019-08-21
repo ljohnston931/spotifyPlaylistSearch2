@@ -74,9 +74,13 @@ class FormGrid extends Component {
     }
 
     openTipsModal() {
-        this.props.openModal('TIPS', 'Try searching for 2-3 of your favorite artists without song titles. ' +
-            'Then add song titles one by one to narrow your search. ' +
-            'Press tab to move to next field. Press enter to search. ');
+        const tips =
+            <ul>
+                <li>Try searching for 2-3 of your favorite artists without song titles.</li>
+                <li>Then add song titles one by one to narrow your search.</li>
+                <li>Press tab to move to next field. Press enter to search.</li>
+            </ul>;
+        this.props.openModal('TIPS', <div>{tips}</div>);
     }
 
     render() {

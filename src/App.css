@@ -43,6 +43,10 @@
         margin-left: 20px;
     }
 
+    .modal-body ul {
+        margin: 0px;
+    }
+
     input {
         border: 0;
         outline: 0;

@@ -5,7 +5,6 @@ Bugs:
 
 
 Short-term
-- '28 playlists match your search.'
 - '0 playlists match your search. Try checking your spelling.' (if spellingError)
 - modals for Hints and ? next to Copy Spotify URI
 - skip x when tabbing
@@ -18,7 +17,6 @@ Medium-term:
 
 Long-term
 - change exposed API and custom engine keys
-- set up tracking through Google Sheets
 - hit Spotify API to list songs in each playlist result
 - paging of results
 - register domain name

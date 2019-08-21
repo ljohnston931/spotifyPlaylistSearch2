@@ -25,7 +25,12 @@ class Result extends Component {
     }
 
     openCopyUriModal() {
-        this.props.openModal('SPOTIFY URI', 'Instead of opening a playlist in the Spotify Web Player, you can open it directly in the Spotify app. Paste the Spotify URI into the search bar of the Spotify app and press enter.');
+        const message =
+            <div>
+                <span>Instead of opening a playlist in the Spotify Web Player, you can open it directly in the Spotify app.</span><br/>
+                    <span>Paste the Spotify URI into the search bar of the Spotify app and press enter.</span>
+             </div>;
+      this.props.openModal('SPOTIFY URI', message);
     }
 
     render() {
