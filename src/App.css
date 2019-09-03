@@ -6,11 +6,11 @@
     }
 
     body {
-        background: #766b76;
+        background: var(--dark-bg);
         font-family: 'Raleway', sans-serif;
         font-weight: 300;
         font-size: 19px;
-        color: #d0cdd0;
+        color: var(--dark-txt);
         margin: 50px;
         letter-spacing: 1px;
     }
@@ -23,7 +23,7 @@
     }
 
     p {
-        color: #fff;
+        color: var(--light-txt);
     }
 
     .heading .title {
@@ -51,9 +51,9 @@
         border: 0;
         outline: 0;
         background: transparent;
-        border-bottom: 1px solid #d0cdd0;
+        border-bottom: 1px solid var(--dark-txt);
         margin: 20px 30px 20px 0px;
-        color: #d0cdd0;
+        color: var(--dark-txt);
         font-family: 'Raleway', sans-serif;
         font-weight: 300;
         font-size: 19px;
@@ -61,56 +61,56 @@
     }
 
     input:focus {
-        color: #fff;
-        border-bottom: 1px solid #fff;
+        color: var(--light-txt);
+        border-bottom: 1px solid var(--light-txt);
     }
 
     input::placeholder {
         opacity: 1;
-        color: #d0cdd0;
+        color: var(--dark-txt);
     }
 
     input:focus::placeholder {
         opacity: 1;
-        color: #fff;
+        color: var(--light-txt);
     }
 
     .inline {
         display: inline-block;
     }
 
-    button.close {
-        background: transparent;
-        border: transparent;
-        color: #d0cdd0;
-        font-size: 19px;
-        font-family: 'Raleway', sans-serif;
-        margin: 2px;
-    }
+button.close {
+    background: transparent;
+    border: transparent;
+    color: var(--dark-txt);
+    font-size: 19px;
+    font-family: 'Raleway', sans-serif;
+    margin: 2px;
+}
 
     button.close:hover {
-        color: #fff;
+        color: var(--light-txt);
         cursor: pointer;
     }
 
-    button.pill {
-        font-size: 17px;
-        font-weight: 500;
-        font-family: 'Raleway', sans-serif;
-        background-color: #d0cdd0;
-        border: none;
-        color: #766b76;
-        padding: 7px 12px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        margin: 20px 35px 35px 0px;
-        cursor: pointer;
-        border-radius: 7px;
-    }
+button.pill {
+    font-size: 17px;
+    font-weight: 500;
+    font-family: 'Raleway', sans-serif;
+    background-color: var(--light-bg);
+    border: none;
+    color: var(--dark-bg);
+    padding: 7px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 20px 35px 35px 0px;
+    cursor: pointer;
+    border-radius: 7px;
+}
 
     button.pill:hover {
-        background-color: #fff;
+        background-color: var(--light-txt);
     }
 
     .result p {
@@ -118,11 +118,11 @@
     }
 
     .changeOnHover {
-        color: #d0cdd0;
+        color: var(--dark-txt);
     }
 
     .changeOnHover:hover {
-        color: #fff;
+        color: var(--light-txt);
         cursor: pointer;
     }
 
@@ -139,11 +139,11 @@
 
     .result a {
         text-decoration: none;
-        color: #d0cdd0;
+        color: var(--dark-txt);
     }
 
     .result a:hover {
-        color: #fff;
+        color: var(--light-txt);
         cursor: pointer;
     }
 
@@ -182,5 +182,5 @@
 
     .result .songCount p {
         text-align: center;
-        color: #d0cdd0
+        color: var(--dark-txt)
     }

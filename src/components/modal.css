@@ -20,7 +20,7 @@
     cursor: pointer;
     opacity: 1;
     transition: opacity 0.3s;
-    color: #524B52;
+    color: var(--dark-bg);
     }
 
     .modal-window * {
@@ -85,13 +85,13 @@
     font-size: 21px;
     font-weight: 700;
     line-height: 1;
-    color: #d0cdd0;
+    color: var(--dark-txt);
     text-shadow: 0 1px 0 #fff;
     outline: none;
     }
 
     .modal-window .modal .modal-header .close-modal:hover {
-        color: #524B52;
+        color: var(--dark-bg);
     }
 
     .modal-window .modal .modal-body {

@@ -45,7 +45,7 @@ class Result extends Component {
                             <a href={this.props.metadata.authorLink} target="_blank"><p className="changeOnHover">{this.props.metadata.authorName}</p></a>
                             <div onClick={this.copyUri}>
                                 <p className="changeOnHover footnote">Copy Spotify URI</p>
-                                <i class="changeOnHover fa fa-question-circle" aria-hidden="true" onClick={this.openCopyUriModal}></i>
+                                <i className="changeOnHover fa fa-question-circle" aria-hidden="true" onClick={this.openCopyUriModal}></i>
                             </div>
                         </div>
                         <div className="songCount">
