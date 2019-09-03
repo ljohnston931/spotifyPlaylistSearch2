@@ -99,7 +99,7 @@ button.pill {
     font-family: 'Raleway', sans-serif;
     background-color: var(--light-bg);
     border: none;
-    color: var(--dark-bg);
+    color: var(--dark-txt);
     padding: 7px 12px;
     text-align: center;
     text-decoration: none;
@@ -110,7 +110,7 @@ button.pill {
 }
 
     button.pill:hover {
-        background-color: var(--light-txt);
+        color: var(--light-txt);
     }
 
     .result p {
@@ -165,7 +165,7 @@ button.pill {
     }
 
     .result .flexContainer:hover {
-        background-color: #585058;
+        background-color: var(--light-bg);
         cursor: pointer;
     }
 
