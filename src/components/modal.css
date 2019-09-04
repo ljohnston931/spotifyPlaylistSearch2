@@ -99,3 +99,24 @@
     padding: 10px;
     text-align: left;
     }
+
+    .modal-window form {
+        margin: 0px 10px;
+    }
+
+    .modal-window textarea {
+        border-color: var(--light-bg);
+        font-size: 19px;
+        font-family: Raleway;
+        width: 100%;
+    }
+
+    .modal-window input {
+        display: block;
+        width: 100%;
+    }
+
+    .modal-window input:focus {
+        color: var(--dark-bg);
+        border-bottom: 1px solid var(--dark-bg);
+    }

@@ -6,10 +6,8 @@ Bugs:
 
 Short-term
 - '0 playlists match your search. Try checking your spelling.' (if spellingError)
-- modals for Hints and ? next to Copy Spotify URI
 - skip x when tabbing
 - tab to add new field
-- change background to #534c53
 
 Medium-term:
 - Advertise here link. Does something look broken, link.

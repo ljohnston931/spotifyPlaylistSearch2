@@ -28,6 +28,16 @@ class HomePage extends Component {
         ReactGA.modalview(modalHeader);
     };
 
+    openReportBugModal() {
+        const form =
+        <form className="modalForm" method="POST" action="https://formspree.io/ljohnston931@gmail.com">
+            <textarea name="message" placeholder="What doesn't look right?"></textarea>
+            <input type="email" name="email" placeholder="Your email (I won't spam you)"></input>
+            <button className="pill" type="submit">Submit report</button>
+        </form>;
+        this.openModal("REPORT A PROBLEM", form);
+    }
+
     render() {
         return (
             <div>
@@ -36,6 +46,7 @@ class HomePage extends Component {
                     <p className="subtitle">FIND A SPOTIFY USER WHOSE TASTE IS AS GOOD AS YOURS.</p>
                 </div>
                 <FormGrid setResults={this.setResults} openModal={this.openModal} />
+                <span className="changeOnHover" onClick={() => this.openReportBugModal()}>Report a Problem</span>
                 <Results results={this.state.results} openModal={this.openModal} />
                 <Modal
                     modalClosed={this.closeModal}
