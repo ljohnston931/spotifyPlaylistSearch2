@@ -57,9 +57,9 @@ function getSpotifyURI(url) {
     if (!url) {
         return;
     }
-    const matches = url.match(/(?<=\/playlist\/).*/g);
-    if (matches && matches.length === 1) {
-        const playlistId = matches[0];
+    const matches = url.match(/\/playlist\/(.*)/);
+    if (matches && matches.length === 2) {
+        const playlistId = matches[1];
         return "spotify:playlist:" + playlistId;
     }
 }
@@ -82,16 +82,18 @@ function formatNumber(num) {
 }
 
 function parseTitle(playlistInfo) {
-    const matches = playlistInfo.match(/.+?(?=, a playlist)/g)
+    const matches = playlistInfo.match(/.+?(?=, a playlist)/)
     if (matches && matches.length > 0) {
         return matches[0];
     }
 }
 
 function parseAuthor(playlistInfo) {
-    const matches = playlistInfo.match(/((?<=a playlist by ).*(?= on Spotify))|(?<=a playlist by ).*/g)
-    if (matches && matches.length > 0) {
-        return matches[0];
+    
+    const matches = playlistInfo.match(/a playlist by (.*)/)
+    if (matches && matches.length > 1) {
+        let authorString = matches[1];
+        return authorString.replace(" on Spotify", "");
     }
 }
 
