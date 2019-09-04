@@ -93,7 +93,7 @@ button.close {
         cursor: pointer;
     }
 
-button.pill {
+.pill {
     font-size: 17px;
     font-weight: 500;
     font-family: 'Raleway', sans-serif;
@@ -109,7 +109,7 @@ button.pill {
     border-radius: 7px;
 }
 
-    button.pill:hover {
+.pill:hover {
         color: var(--light-txt);
     }
 
