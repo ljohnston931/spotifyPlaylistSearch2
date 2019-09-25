@@ -10,6 +10,7 @@ class HomePage extends Component {
         super(props);
         this.state = {};
         this.setResults = this.setResults.bind(this);
+        this.addNewResults = this.addNewResults.bind(this);
 
         ReactGA.initialize('UA-146064976-1');
         ReactGA.pageview('homepage');
@@ -17,6 +18,12 @@ class HomePage extends Component {
 
     setResults(results) {
         this.setState({ results: results });
+    }
+
+    addNewResults(newResults) {
+        newResults.items = this.state.results.items.concat(newResults.items)
+        newResults = Object.assign(this.state.results, newResults)
+        this.setResults(newResults)
     }
 
     closeModal = () => {
@@ -47,7 +54,7 @@ class HomePage extends Component {
                 </div>
                 <FormGrid setResults={this.setResults} openModal={this.openModal} />
                 <span className="changeOnHover" onClick={() => this.openReportBugModal()}>Report a Problem</span>
-                <Results results={this.state.results} openModal={this.openModal} />
+                <Results results={this.state.results} openModal={this.openModal} addNewResults={this.addNewResults}/>
                 <Modal
                     modalClosed={this.closeModal}
                     show={this.state.isModalOpen}
@@ -59,7 +66,7 @@ class HomePage extends Component {
             </Modal>
           </div>
         )
-  }
+    }
 }
 
 export default HomePage;

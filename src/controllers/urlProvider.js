@@ -12,6 +12,10 @@ function getUrl(searchQueryTerms) {
     return endpoint + "?key=" + key + "&cx=" + customEngine + "&q=" + searchString;
 };
 
+function getNextPageUrl(baseUrl, startIndex) {
+    return baseUrl + "&start="+ startIndex;
+}
+
 function createSearchString(queryTerm) {
     let searchString = '';
     if (queryTerm.artist) {
@@ -27,4 +31,4 @@ function replaceSpaces(searchString) {
     return searchString.split("%20").join("+");
 }
 
-export default { getUrl: getUrl };
+export default { getUrl: getUrl, getNextPageUrl : getNextPageUrl };

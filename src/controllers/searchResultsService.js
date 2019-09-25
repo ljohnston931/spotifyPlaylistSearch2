@@ -4,8 +4,65 @@ import ReactGA from 'react-ga';
 async function getSearchResults(searchQueryTerms) {
     const url = urlProvider.getUrl(searchQueryTerms);
     const res = await getResponse(url);
+    let results = processResults(res);
+    results.baseUrl = url;
+    if (results.nextPageIndex) {
+        results.nextPageUrl = urlProvider.getNextPageUrl(url, results.nextPageIndex)
+    }
+    return results;
+}
 
-    return processResults(res);
+async function getMoreResults(nextPageUrl, baseUrl) {
+    const res = await getResponse(nextPageUrl);
+    let results = processMoreResults(res);
+    results.baseUrl = baseUrl;
+    if (results.nextPageIndex) {
+        results.nextPageUrl = urlProvider.getNextPageUrl(baseUrl, results.nextPageIndex)
+    }
+    return results;
+}
+
+function processMoreResults(res) {
+    if (!res) {
+        return;
+    }
+    let searchResults = {};
+    if (res.error) {
+        ReactGA.initialize('UA-146064976-1');
+        ReactGA.exception(res.error);
+        searchResults.error = res.error;
+        return searchResults;
+    }
+    if (res.items) {
+        searchResults.items = res.items.reduce((processedItems, item) => {
+            const metatags = item.pagemap.metatags[0];
+            const spotifyUri = getSpotifyURI(metatags["og:url"]);
+            if (spotifyUri) {
+                const playlistInfo = metatags["og:title"]
+                processedItems.push({
+                    title: parseTitle(playlistInfo),
+                    link: metatags["og:url"],
+                    imageSource: metatags["og:image"],
+                    authorName: parseAuthor(playlistInfo),
+                    authorLink: metatags["music:creator"],
+                    songCount: metatags["music:song_count"],
+                    spotifyUri: spotifyUri
+                });
+            } else {
+                //This result isn't a playlist
+                searchResults.hitCount = adjustHitCount(searchResults.hitCount);
+            }
+            return processedItems;
+        }, []);
+    }
+
+    if (res.queries && res.queries.nextPage && res.queries.nextPage.length > 0) {
+        searchResults.nextPageIndex = res.queries.nextPage[0].startIndex;
+    } else {
+        searchResults.nextPageIndex = null;
+    }
+
+    return searchResults;
 }
 
 function processResults(res) {
@@ -42,6 +99,13 @@ function processResults(res) {
             return processedItems;
         }, []);
     }
+
+    if (res.queries && res.queries.nextPage && res.queries.nextPage.length > 0) {
+        searchResults.nextPageIndex = res.queries.nextPage[0].startIndex;
+    } else {
+        searchResults.nextPageIndex = null;
+    }
+
     if (searchResults.hitCount > 1) {
         searchResults.message = formatNumber(searchResults.hitCount) + " results";
     } else if (searchResults.hitCount == 1) {
@@ -97,4 +161,4 @@ function parseAuthor(playlistInfo) {
     }
 }
 
-export default { getSearchResults: getSearchResults };
+export default { getSearchResults: getSearchResults, getMoreResults: getMoreResults };

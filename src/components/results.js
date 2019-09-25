@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Result from './result.js';
+import GetResultsButton from './getResultsButton.js'
 
 class Results extends Component {
 
@@ -17,19 +18,23 @@ class Results extends Component {
         if (this.props.results) {
             // if (error) sorry I only get 100 searches a day before google starts charging me money. Try again tomorrow!
             const message = this.props.results.message;
+            const nextPageUrl = this.props.results.nextPageUrl;
+            const baseUrl = this.props.results.baseUrl
             let results;
             if (this.props.results.items) {
                 results = this.props.results.items.map((result, index) =>
                     <Result metadata={result} key={index} openModal={this.props.openModal}/>);
             }
 
-        return (
-            <div>
-                <p>{message}</p>
-                <div className="pill" onClick={() => this.openAdvertiseModal()}>Advertise your playlist here!</div>
-                <div>{results}</div>
-            </div>
-        );} else {
+            return (
+                <div>
+                    <p>{message}</p>
+                    <div className="pill" onClick={() => this.openAdvertiseModal()}>Advertise your playlist here!</div>
+                    <div>{results}</div>
+                    <GetResultsButton addNewResults={this.props.addNewResults} nextPageUrl={nextPageUrl} baseUrl={baseUrl}>More</GetResultsButton>
+                </div>
+            );
+        } else {
             return (null);
         }
     }
