@@ -8,7 +8,7 @@ async function getSearchResults(searchQueryTerms) {
     results.baseUrl = url;
     if (results.nextPageIndex) {
         results.nextPageUrl = urlProvider.getNextPageUrl(url, results.nextPageIndex)
-    }
+    } 
     return results;
 }
 
@@ -18,6 +18,8 @@ async function getMoreResults(nextPageUrl, baseUrl) {
     results.baseUrl = baseUrl;
     if (results.nextPageIndex) {
         results.nextPageUrl = urlProvider.getNextPageUrl(baseUrl, results.nextPageIndex)
+    } else {
+        results.nextPageUrl = null;
     }
     return results;
 }
