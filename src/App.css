@@ -15,6 +15,12 @@
         letter-spacing: 1px;
     }
 
+    @media only screen and (max-width: 650px) {
+        body {
+            margin: 30px;
+        }
+    }
+
     #app {
         max-width: 1000px;
         padding: 50px;
@@ -32,10 +38,23 @@
         margin-bottom: 20px;
     }
 
+    @media only screen and (max-width: 650px) {
+        .heading .title {
+            margin-top: 0px;
+            font-size: 30px;
+        }
+    }
+
     .heading .subtitle {
         letter-spacing: 2px;
         font-weight: 400;
         margin-bottom: 85px;
+    }
+
+    @media only screen and (max-width: 650px) {
+        .heading .subtitle {
+            display: none
+        }
     }
 
     .tipsButton {
@@ -184,3 +203,4 @@ button.close {
         text-align: center;
         color: var(--dark-txt)
     }
+
