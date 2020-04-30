@@ -28,6 +28,10 @@ class FormGrid extends Component {
         const results = await searchResultsService.getSearchResults(this.state.searchQueryTerms);
         this.props.setResults(results);
         this.logSearch(this.state.searchQueryTerms);
+
+        // Scroll down to results
+        var elmnt = document.getElementById("report");
+        elmnt.scrollIntoView({behavior: "smooth"});
     }
 
     logSearch(searchQueryTerms) {

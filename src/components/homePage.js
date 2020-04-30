@@ -53,7 +53,7 @@ class HomePage extends Component {
                     <p className="subtitle">FIND A SPOTIFY USER WHOSE TASTE IS AS GOOD AS YOURS.</p>
                 </div>
                 <FormGrid setResults={this.setResults} openModal={this.openModal} />
-                <span className="changeOnHover" onClick={() => this.openReportBugModal()}>Report a Problem</span>
+                <span id="report" className="changeOnHover" onClick={() => this.openReportBugModal()}>Report a Problem</span>
                 <Results results={this.state.results} openModal={this.openModal} addNewResults={this.addNewResults}/>
                 <Modal
                     modalClosed={this.closeModal}
