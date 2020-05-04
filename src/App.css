@@ -77,7 +77,7 @@
         font-weight: 300;
         font-size: 19px;
         letter-spacing: 1px;
-        max-width: 22vw;
+        max-width: 24vw;
     }
 
     @media only screen and (max-width: 650px) {
