@@ -1,8 +1,8 @@
 import urlProvider from './urlProvider.js';
 import ReactGA from 'react-ga';
 
-async function getSearchResults(searchQueryTerms) {
-    const url = urlProvider.getUrl(searchQueryTerms);
+async function getSearchResults(searchQueryTerms, apiKey = null) {
+    const url = urlProvider.getUrl(searchQueryTerms, apiKey);
     const res = await getResponse(url);
     let results = processResults(res);
     results.baseUrl = url;
@@ -30,8 +30,9 @@ function processMoreResults(res) {
     }
     let searchResults = {};
     if (res.error) {
-        ReactGA.initialize('UA-146064976-1');
-        ReactGA.exception(res.error);
+        //ReactGA.initialize('UA-146064976-1');
+        //ReactGA.exception(res.error);
+        console.log(res.error)
         searchResults.error = res.error;
         return searchResults;
     }
@@ -73,8 +74,9 @@ function processResults(res) {
     }
     let searchResults = {};
     if (res.error) {
-        ReactGA.initialize('UA-146064976-1');
-        ReactGA.exception(res.error);
+        //ReactGA.initialize('UA-146064976-1');
+        //ReactGA.exception(res.error);
+        console.log(res.error)
         searchResults.error = res.error;
         return searchResults;
     }

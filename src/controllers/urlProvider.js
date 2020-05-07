@@ -1,6 +1,6 @@
-function getUrl(searchQueryTerms) {
+function getUrl(searchQueryTerms, apiKey) {
     const endpoint = "https://www.googleapis.com/customsearch/v1";
-    const key = process.env.REACT_APP_API_KEY;
+    const key = getRandomApiKey(apiKey);
     const customEngine = process.env.REACT_APP_CUSTOM_ENGINE;
 
     let searchString = "inurl:playlist";
@@ -29,6 +29,14 @@ function createSearchString(queryTerm) {
 
 function replaceSpaces(searchString) {
     return searchString.split("%20").join("+");
+}
+
+function getRandomApiKey(apiKey) {
+    if (!apiKey) {
+        apiKey = Math.floor(Math.random() * 6)
+    }
+    const key = "REACT_APP_API_KEY_" + apiKey
+    return process.env[key]
 }
 
 export default { getUrl: getUrl, getNextPageUrl : getNextPageUrl };
