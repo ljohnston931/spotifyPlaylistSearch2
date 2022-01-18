@@ -10,7 +10,9 @@ class GetResultsButton extends Component {
 
     async showMore() {
         const newResults = await searchResultsService.getMoreResults(this.props.nextPageUrl, this.props.baseUrl);
-        this.props.addNewResults(newResults);
+        if (!newResults.error) {
+            this.props.addNewResults(newResults);
+        }
     }
     render() {
         if (this.props.nextPageUrl) {

@@ -41,16 +41,9 @@ function processMoreResults(res) {
             const metatags = item.pagemap.metatags[0];
             const spotifyUri = getSpotifyURI(metatags["og:url"]);
             if (spotifyUri) {
-                const playlistInfo = metatags["og:title"]
-                processedItems.push({
-                    title: parseTitle(playlistInfo),
-                    link: metatags["og:url"],
-                    imageSource: metatags["og:image"],
-                    authorName: parseAuthor(playlistInfo),
-                    authorLink: metatags["music:creator"],
-                    songCount: metatags["music:song_count"],
-                    spotifyUri: spotifyUri
-                });
+                let processedItem = parseMetatags(metatags);
+                processedItem.spotifyUri = spotifyUri;
+                processedItems.push(processedItem);
             } else {
                 //This result isn't a playlist
                 searchResults.hitCount = adjustHitCount(searchResults.hitCount);
@@ -86,16 +79,9 @@ function processResults(res) {
             const metatags = item.pagemap.metatags[0];
             const spotifyUri = getSpotifyURI(metatags["og:url"]);
             if (spotifyUri) {
-                const playlistInfo = metatags["og:title"]
-                processedItems.push({
-                    title: parseTitle(playlistInfo),
-                    link: metatags["og:url"],
-                    imageSource: metatags["og:image"],
-                    authorName: parseAuthor(playlistInfo),
-                    authorLink: metatags["music:creator"],
-                    songCount: metatags["music:song_count"],
-                    spotifyUri: spotifyUri
-                });
+                let processedItem = parseMetatags(metatags);
+                processedItem.spotifyUri = spotifyUri;
+                processedItems.push(processedItem);
             } else {
                 //This result isn't a playlist
                 searchResults.hitCount = adjustHitCount(searchResults.hitCount);
@@ -119,6 +105,17 @@ function processResults(res) {
     }
     
     return searchResults;
+}
+
+const parseMetatags = (metatags) => {
+    return {
+        title: parseTitle(metatags["og:title"]),
+        link: metatags["og:url"],
+        imageSource: metatags["og:image"],
+        authorName: parseAuthor(metatags["og:title"], metatags["og:description"]),
+        authorLink: metatags["music:creator"],
+        songCount: parseSongCount(metatags["og:description"]),
+    }
 }
 
 function getSpotifyURI(url) {
@@ -150,18 +147,34 @@ function formatNumber(num) {
 }
 
 function parseTitle(playlistInfo) {
-    const matches = playlistInfo.match(/.+?(?=, a playlist)/)
-    if (matches && matches.length > 0) {
-        return matches[0];
+    if (playlistInfo.includes("a playlist by")) {
+        const matches = playlistInfo.match(/.+?(?=, a playlist)/)
+        if (matches && matches.length > 0) {
+            return matches[0];
+        }
+    } else {
+        return playlistInfo;
     }
 }
 
-function parseAuthor(playlistInfo) {
-    
-    const matches = playlistInfo.match(/a playlist by (.*)/)
+function parseAuthor(title, description) { 
+    let matches = title.match(/a playlist by (.*)/)
     if (matches && matches.length > 1) {
         let authorString = matches[1];
         return authorString.replace(" on Spotify", "");
+    }
+    matches = description.match(/.*?(?= ·)/)
+    if (matches && matches.length > 0) {
+        return matches[0]
+    } else {
+        return "Spotify"
+    }
+}
+
+const parseSongCount = (description) => {
+    const matches = description.match(/\d+(?= songs)/)
+    if (matches && matches.length > 0) {
+        return matches[0];
     }
 }
 

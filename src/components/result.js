@@ -38,11 +38,11 @@ class Result extends Component {
             <div className="result">
                 <div className="flexContainer" onClick={() => window.open(this.props.metadata.link, "_blank")}>
                         <div className="coverArt">
-                            <img src={this.props.metadata.imageSource} alt="playlist cover art"></img>
+                            <img src={this.props.metadata?.imageSource} alt="playlist cover art"></img>
                         </div>
                         <div className="playlistInfo">
                             <p>{this.props.metadata.title}</p>
-                            <a href={this.props.metadata.authorLink} target="_blank"><p className="changeOnHover">{this.props.metadata.authorName}</p></a>
+                            <a href={this.props.metadata.authorLink} target="_blank" rel="noopener noreferrer"><p className="changeOnHover">{this.props.metadata.authorName}</p></a>
                             <div className="uri" onClick={this.copyUri}>
                                 <p className="changeOnHover footnote">Copy Spotify URI</p>
                                 <i className="changeOnHover fa fa-question-circle" aria-hidden="true" onClick={this.openCopyUriModal}></i>
